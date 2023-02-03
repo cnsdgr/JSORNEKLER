@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>ALAN ÇEVRE HESAPLAMA</title>
+    </head>
+
+    <script>
+        function temizle(){
+            document.getElementById("cevre_gir").value="";
+            document.getElementById("alan_gir").value="";
+        }
+        
+    
+
+        function hesapla(){
+            var secim=document.getElementById('sekil').value;
+            var sonuc;
+            switch(secim){
+                case 'kare':
+                    var kenar=parseInt(prompt("Karenin kenar uzuluğunu giriniz"));
+                    var alan1=kenar*kenar;
+                    var cevre1=4*kenar;
+                    document.getElementById('cevre_gir').value=cevre1;
+                    document.getElementById('alan_gir').value=alan1;
+                  
+                break;
+
+                  case 'ucgen':
+                    var kenar_x=parseInt(prompt("Üçgenin x kenarını girin:"));
+                    var kenar_y=parseInt(prompt("Üçgenin y kenarını girin:"));
+                    var kenar_z=parseInt(prompt("Üçgenin z kenarı giriniz:"));
+                    var kenar_yukseklik=parseInt(prompt("Üçgenin x kenarı yüksekliğini giriniz:"));
+                    var alan2=(kenar_x*kenar_yukseklik)/2;
+                    var cevre2=kenar_x+kenar_y+kenar_z;
+                    document.getElementById('cevre_gir').value=cevre2;
+                    document.getElementById('alan_gir').value=alan2;
+                 
+                  break;
+
+                  
+                  case 'daire':
+
+                  var yaricap=parseInt(prompt("Dairenin yarıçapını giriniz:"));
+                  var alan3=3*(yaricap*yaricap);
+                  var cevre3=6*yaricap;
+                  document.getElementById('cevre_gir').value=cevre3;
+                    document.getElementById('alan_gir').value=alan3;
+                    
+                 break;
+
+            }        
+
+
+        }
+
+    </script>
+    <body>      
+
+            
+            <form>
+            <div class="container">
+               <div class="row">
+                         
+                    <h3>Alan ve Çevre Hesaplama</h3>
+                    
+             </div>
+                
+                <div class="row">
+                   
+
+                Geometrik Şekil:
+                   
+        
+            
+                <select name="sekil" id="sekil">
+                        <option value="kare">Kare</option>
+                        <option value="ucgen">Üçgen</option>
+                        <option value="daire">Daire</option>
+                       
+                </select>
+           
+
+            </div>
+            <div class="row">
+              
+                Çevre:            
+                    <input type="number" name="cevre" id="cevre_gir" placeholder="">
+
+
+            </div>
+            <div class="row">
+                Alan:
+               
+                    <input type="number" name="alan" id="alan_gir" placeholder="">
+
+
+            </div>
+            <div class="row">
+                <button type="button" onclick="hesapla()">Hesapla</button>
+                <button type="button" onclick="temizle()">Temizle</button>
+
+
+            </div>        
+                
+               
+            </div>
+            
+        </form>
+
+
+    </body>
+    </html>

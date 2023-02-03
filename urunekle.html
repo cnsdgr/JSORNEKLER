@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title></title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+       
+        <script>
+            
+
+
+    
+        </script>
+    </head>
+
+
+
+<body>
+<div class="row border border-dark py-2 px-2">
+    <div class="col-6 border border-dark py-2 px-2"></div>
+    <div class="row py-2 px-2">
+        <div class="col-6 border border-dark py-2 px-2">
+            <div class="row py-2 px-2">
+                <div class="col-6 border border-dark py-2 px-2">Product:</div>
+                <div class="col-6 border border-dark py-2 px-2">
+                    <select name="ekran" id="urun">
+                        <option value="lcd">LCD TV</option>
+                        <option value="buzdolabi">Buzdolabı</option>
+                        <option value="airfry">Havalı kızartıcı</option>
+                       
+                </select>
+                </div>
+                <div class="col-6 border border-dark py-2 px-2">Amount:</div>
+                <div class="col-6 border border-dark py-2 px-2"><input type="number" id="miktar"></div>
+            </div>
+           
+        </div>
+       
+    </div>
+    <div class="col-6 border border-dark">
+        <button type="button" onclick="ekle()">Sepete Ekle</button>
+    </div>
+    
+</div>
+<script>
+    var top_urun=0;
+    var toplam=0;
+    function ekle(){
+        var urun=document.getElementById("urun").value;
+        var miktar=parseint(document.getElementById("miktar").value);
+
+        switch(urun){
+            case "lcd":
+                document.getElementById("hesap").innerHTML+="<br>"+miktar+"x-LCD:15.000 TL";
+                toplam+=miktar*15.000;
+                top_urun+=miktar;
+                break;
+                case "buzdolabi":
+                document.getElementById("hesap").innerHTML+="<br>BUZDOLABI:27.000 TL";
+                toplam+=miktar*27.000;
+                top_urun+=miktar;
+                break;
+                case "airfry":
+                document.getElementById("hesap").innerHTML+="<br>AIRFRY:10.000 TL";
+                toplam+=miktar*10.000;
+                top_urun+=miktar;
+                break;
+
+        }
+    }
+
+    function hesapla(){
+        var taksit=document.getElementById("taksit").checked;
+
+        if(taksit==true){
+            var yuzde=
+            toplam=toplam+(toplam*10/100);
+
+
+        }
+        document.getElementById("hesap").innerHTML="Almış olduğunuz toplam"+top_urun
+        "kalem ürünün toplamı"+toplam+"TL dir.";
+
+    }
+
+</script>
+
+
+
+</body>
+</html>
